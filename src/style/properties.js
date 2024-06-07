@@ -22,6 +22,9 @@ const styfn = {};
 
   // each visual style property has a type and needs to be validated according to it
   styfn.types = {
+    // 🐺
+    fixedLabelHeight: { number: true, min: 0, unitless: true, enums: ['none'] },
+
     time: { number: true, min: 0, units: 's|ms', implicitUnits: 'ms' },
     percent: { number: true, min: 0, max: 100, units: '%', implicitUnits: '%' },
     percentages: { number: true, min: 0, max: 100, units: '%', implicitUnits: '%', multiple: true },
@@ -323,7 +326,7 @@ const styfn = {};
     { name: 'background-image', type: t.urls },
     { name: 'background-image-crossorigin', type: t.bgCrossOrigin },
     { name: 'background-image-opacity', type: t.zeroOneNumbers },
-    { name: 'background-image-containment', type: t.bgContainment }, 
+    { name: 'background-image-containment', type: t.bgContainment },
     { name: 'background-image-smoothing', type: t.bools },
     { name: 'background-position-x', type: t.bgPos },
     { name: 'background-position-y', type: t.bgPos },
@@ -339,6 +342,9 @@ const styfn = {};
   ];
 
   let compound = [
+    // 🐺
+    { name: 'fixed-label-height', type: t.fixedLabelHeight, triggersBounds: diff.any },
+
     { name: 'position', type: t.position, triggersBounds: diff.any },
     { name: 'compound-sizing-wrt-labels', type: t.compoundIncludeLabels, triggersBounds: diff.any },
     { name: 'min-width', type: t.size, triggersBounds: diff.any },
@@ -684,6 +690,10 @@ styfn.getDefaultProperties = function(){
     'ghost-opacity': 0,
 
     // compound props
+
+    // 🐺
+    'fixed-label-height': 'none',
+
     'padding': 0,
     'padding-relative-to': 'width',
     'position': 'origin',

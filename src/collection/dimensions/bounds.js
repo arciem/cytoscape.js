@@ -293,6 +293,14 @@ let updateBoundsFromLabel = function( bounds, ele, prefix ){
     let padding = ele.pstyle( 'text-background-padding' ).pfValue;
     let marginOfError = 2; // expand to work around browser dimension inaccuracies
 
+    // 🐺
+    if ( !isEdge ) {
+      let fixedLabelHeight = ele.pstyle( 'fixed-label-height' ).pfValue;
+      if (typeof fixedLabelHeight === 'number' && fixedLabelHeight > 0) {
+        labelHeight = fixedLabelHeight;
+      }
+    }
+
     let lh = labelHeight;
     let lw = labelWidth;
     let lw_2 = lw / 2;
