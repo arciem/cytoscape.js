@@ -100,6 +100,10 @@ elesfn.updateCompoundBounds = function(force = false){
       bb.y2 = pos.y + bb.h/2;
     }
 
+    // 🐺✅
+    bb.y1 -= parent.pstyle('top-extra-padding').pfValue;
+    bb.h = bb.y2 - bb.y1;
+
     function computeBiasValues( propDiff, propBias, propBiasComplement ){
       let biasDiff = 0;
       let biasComplementDiff = 0;

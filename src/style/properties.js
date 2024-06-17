@@ -342,8 +342,8 @@ const styfn = {};
   ];
 
   let compound = [
-    // 🐺
-    { name: 'fixed-label-height', type: t.fixedLabelHeight, triggersBounds: diff.any },
+    // 🐺✅
+    { name: 'top-extra-padding', type: t.size, triggersBounds: diff.any },
 
     { name: 'position', type: t.position, triggersBounds: diff.any },
     { name: 'compound-sizing-wrt-labels', type: t.compoundIncludeLabels, triggersBounds: diff.any },
@@ -703,7 +703,10 @@ styfn.getDefaultProperties = function(){
     'min-width-bias-right': 0,
     'min-height': 0,
     'min-height-bias-top': 0,
-    'min-height-bias-bottom': 0
+    'min-height-bias-bottom': 0,
+
+    // 🐺✅
+    'top-extra-padding': 0,
   }, {
     // node pie bg
     'pie-size': '100%'
@@ -792,6 +795,10 @@ styfn.addDefaultStylesheet = function(){
       .css( {
         'shape': 'rectangle',
         'padding': 10,
+
+        // 🐺✅
+        'top-extra-padding': 0,
+
         'background-color': '#eee',
         'border-color': '#ccc',
         'border-width': 1
